@@ -1,0 +1,20 @@
+{
+    "students": [
+        {
+            "id": 1,
+            "fullName": "Nguyễn Hoàng An"
+        },
+        {
+            "id": 2,
+            "fullName": "Lê Ngọc Quân"
+        },
+        {
+            "id": 3,
+            "fullName": "Pham Quoc Bao"
+        },
+        {
+            "id": 4,
+            "fullName": "Chu Ngoc Hoang"
+        }
+    ]
+}
