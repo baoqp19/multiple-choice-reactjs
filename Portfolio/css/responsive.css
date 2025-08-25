@@ -1,0 +1,62 @@
+
+/*========== Desktop ======== */
+
+@media (max-width: 1536px){
+    .container {
+        max-width: 1440px;
+    }
+} 
+@media (max-width: 1440px){
+    .container {
+        max-width: 1080px;
+    }
+}
+    /* Table && small laptop */
+@media(max-width: 1280px){
+    .container{
+        max-width: 1024px;
+    }
+    /* Header */
+    .header__container{
+        flex-direction: column;
+    }
+
+    .header__column--left{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header__content--left{
+        align-items: center;
+        
+        & p{
+            text-align: center;
+            max-width: 320px;
+        };
+    }
+
+    .header__column--right{
+        text-align: center;
+        align-items: center;
+    }
+}
+
+
+@media (max-width: 640px){
+
+    :root{
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .container{
+        max-width: 475px;
+        padding: 0 1rem;
+    }
+    header{
+        margin-top: 20px;
+    }
+
+    .header__badge_container{
+        flex-direction: column;
+    }
+}
