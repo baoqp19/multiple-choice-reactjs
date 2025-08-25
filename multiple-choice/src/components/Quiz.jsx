@@ -1,4 +1,5 @@
-import react, { useState } from "react";
+import react, { useEffect, useState } from "react";
+import Results from "./Result";
 
 const quizData = [
   {
@@ -95,8 +96,14 @@ const Quiz = () => {
   );
 
   const [currentQuestiton, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [isQuizEnded, setIsQuizEnded] = useState(false);
 
   const handleSelectedOption = (option, index) => {
+    // tính điểm
+    if (option === quizData[currentQuestiton].answer) {
+      setScore((prev) => prev + 1);
+    }
     setSelectedOption(option);
 
     const newUserAnsers = [...userAnswers];
@@ -105,15 +112,10 @@ const Quiz = () => {
   };
 
   const goNext = () => {
-    setCurrentQuestion((prev) => prev + 1); // không nên dùng currentQuestiton + 1 vì state nó bất đồng bộ
-
-    const answer = Number(userAnswers[currentQuestiton + 1]);
-    const pastOptionSelected = quizData[currentQuestiton + 1].options[answer];
-
-    if (answer !== undefined) {
-      setSelectedOption(pastOptionSelected);
+    if (currentQuestiton === quizData.length - 1) {
+      setIsQuizEnded(true);
     } else {
-      setSelectedOption("");
+      setCurrentQuestion((prev) => prev + 1); // không nên dùng currentQuestiton + 1 vì state nó bất đồng bộ
     }
   };
   const goBack = () => {
@@ -121,6 +123,47 @@ const Quiz = () => {
       setCurrentQuestion((prev) => prev - 1);
     }
   };
+
+  useEffect(() => {
+    const answer = Number(userAnswers[currentQuestiton]);
+    const pastOptionSelected = quizData[currentQuestiton].options[answer];
+
+    if (answer !== undefined) {
+      setSelectedOption(pastOptionSelected);
+    } else {
+      setSelectedOption("");
+    }
+  }, [currentQuestiton, userAnswers]);
+
+  //   useEffect(() => {
+  //     if (selectedOption === quizData[currentQuestiton].answer) {
+  //       setScore((prev) => prev + 1);
+  //     }
+  //   }, [selectedOption]);
+
+  const reStartQuiz = () => {
+    setIsQuizEnded(false);
+    setCurrentQuestion(0);
+    setScore(0);
+    setUserAnswers(Array.from({ length: quizData.length }));
+    setSelectedOption("");
+  };
+
+  const rewatchQuiz = () => {
+    setCurrentQuestion(0);
+    setIsQuizEnded(false);
+  };
+
+  if (isQuizEnded) {
+    return (
+      <Results
+        score={score}
+        totalQuestionNum={quizData.length}
+        reStartQuiz={reStartQuiz}
+        rewatchQuiz={rewatchQuiz}
+      />
+    );
+  }
 
   return (
     <div>
@@ -144,8 +187,14 @@ const Quiz = () => {
         )
       ) : null}
       <div className="nav-buttons">
-        <button onClick={goBack}>Quay lại</button>
-        <button onClick={goNext}>Câu tiếp</button>
+        <button onClick={goBack} disabled={currentQuestiton === 0}>
+          Quay lại
+        </button>
+        <button onClick={goNext} disabled={!selectedOption}>
+          {currentQuestiton === quizData.length - 1
+            ? "Hoàn thành"
+            : "Câu tiếp theo"}
+        </button>
       </div>
     </div>
   );
