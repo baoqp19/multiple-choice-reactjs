@@ -4,7 +4,7 @@
 @import "./sections/footer.css";
 @import "./sections/projects.css";
 @import "./sections/skills.css";
-
+@import "./animation.css";
 
 *{
     box-sizing: border-box;
@@ -17,8 +17,22 @@
     font-family: "Chakra Petch", sans-serif;
     font-weight: 400;
     font-style: normal;
+    scroll-behavior: smooth;
 }
 
+body{
+    /* Background pattern */
+    background-color: var(--foreground-color);
+    background-size: 7px 7px;
+    background-image: repeating-linear-gradient(
+        45deg,
+        hsla(var(--p-500-code), 0.1) 0,
+        hsla(var(--p-700-code), 0.1) 0.7000000001px,
+        var(--foreground-color) 0,
+        var(--foreground-color) 50%
+    );
+}
+ 
 .container{
     margin: 0 auto;
     max-width: 1536px;
@@ -27,6 +41,18 @@
 
 a{
     text-decoration: none;;
+}
+
+
+section{
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+.section__header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
 }
 
 .section__title{

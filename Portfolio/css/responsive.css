@@ -7,12 +7,24 @@
     }
 } 
 @media (max-width: 1440px){
+
     .container {
         max-width: 1080px;
+    }
+        /* Skillls */
+ 
+    .softSkills_badge{
+        position: static !important;
+        transform: none !important;
+    }
+
+    .softSkill__book_icons{
+        display: none;
     }
 }
     /* Table && small laptop */
 @media(max-width: 1280px){
+
     .container{
         max-width: 1024px;
     }
@@ -39,6 +51,17 @@
         text-align: center;
         align-items: center;
     }
+    /* Skillls */
+
+    .softSkills_badge{
+        position: static !important;
+        transform: none !important;
+    }
+
+    .softSkill__book_icons{
+        display: none;
+    }
+
 }
 
 @Media (max-width: 768px){
@@ -52,6 +75,19 @@
 
         & img{
             display: none;
+        }
+    }
+
+    /* SKillls */
+
+    .skills__grid_container{
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+        grid-template-rows: minmax(280px, auto);
+
+        & .skill__grid_item{
+            padding: 1rem 1rem;
+            grid-column: span 1 !important;
+            grid-row: span 1 !important;
         }
     }
 }
@@ -94,5 +130,11 @@
 
     .aboutMe__content_container{
         border-radius: 2rem;
+    }
+
+    /* Footer */
+
+    footer{
+        padding: 0;
     }
 }
