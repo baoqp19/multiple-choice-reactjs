@@ -18,6 +18,9 @@
     border: 1px solid hsla(var(--p-700-code), 0.1);
     border-radius: 24px;
     background: var(--foreground-color);
+    /* hidden: ẩn vẫn có thể scroll
+       clip: ẩn + không có scroll 
+    */
     overflow: clip;
     box-shadow: 1px 4px 6px -1px hsla(var(--p-950-code), 0.1), 1px 2px 4px -2px hsla(var(--p-950-code), 0.1);
     transition: all 0.5s ease;
@@ -36,6 +39,7 @@
 .projects__cards_img{
     width: 284px;
     height: 284px;
+    /* Ảnh lấp đầy khung  */
     object-fit: cover;
     border-radius: 24px;
     transition: transform 0.5s ease;
