@@ -16,3 +16,20 @@ $(function () {
     container.appendChild(img);
   });
 });
+
+// product
+
+$(function () {
+  // thêm activeTab vào li đầu tiên
+  $("li:first").addClass("activeTab");
+
+  // đổi màu activeTab
+  $("li").on("click", function () {
+    $("li").removeClass("activeTab");
+    $('div[id="products-tabs"] ul .r-tabs-state-active').addClass("activeTab");
+  });
+
+  $("#products-tabs").responsiveTabs({
+    animation: "slide",
+  });
+});
