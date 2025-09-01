@@ -1,1 +1,80 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* Theme */
+
+@theme{
+    --breakpoint-sm: 30rem; /*480px */
+    --breakpoint-md: 48rem; /*768px*/
+    --breakpoint-lg: 80rem; /*1280px*/
+    --breakpoint-xl: 87.5rem; /*1400px*/
+    --breakpoint-2xl: 96rem; /*1563px*/
+
+    --font-lobster: "Lobster", serif;
+    --font-inter: "Inter", sans-serif;
+}
+
+/* có thể sử dụng container dể hover, before, after, nếu dùng trong component, base thì không dc  */
+@utility container{
+    margin-inline: auto;
+    /* inline: trái phải, block: trên dưới) */
+    padding-inline: 1rem; 
+    padding-block: 2rem;
+    width: 100%;
+    overflow-x: clip;
+    max-width: 1536px;
+
+    @media (min-width: theme("screens.md")){
+        padding-inline: 4.5rem;
+        padding-block: 3rem;
+    }
+
+}
+
+@layer base{
+    body{
+        @apply text-base font-inter overflow-x-clip;
+    }
+
+    p{
+        @apply text-sm leading-7 font-inter;
+    }
+
+    button{
+        @apply px-1 py-1 border cursor-pointer;
+    }
+}
+
+@Layer components{
+     .btn{
+        @apply flex items-center justify-center gap-2 px-4 py-2 text-sm tracking-wide text-white
+        bg-p-900 hover:bg-p-700 border-p-900 transition-colors duration-500 font-inter
+    }
+
+    .text-gradient{
+        background: linear-gradient(
+            to right,
+            theme("colors.p.600"),
+            theme("colors.p.900")
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* parnet logos */
+
+    .sub_heading{
+        @apply text-sm font-medium uppercase font-inter text-p-900;
+    }
+
+    .main_heading{
+        @apply mt-2 text-2xl tracking-wide capitalize lg:text-3xl font-lobster;
+    }
+
+}
+
+@layer utilities{
+    .logo-ticker-image{
+        @apply w-auto h-6 lg:h-9
+    }
+}

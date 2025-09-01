@@ -6,11 +6,66 @@
     <title>Tea Station</title>
 
     <link rel="icon" href="./assets/logo.png" type="image/png">
+
+	   <!-- FONT -->
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster&display=swap" rel="stylesheet">
+     <!-- CSS -->
      <link href="./dist/output.css" rel="stylesheet">
+
+	 <!-- Jquery -->
+	<script defer src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <!-- Script -->
     <script defer type="module" src="./js/main.js"></script>
 </head>
 <body>
-    <h1>Heelo</h1>
+	<!-- Hero -->
+    <section id="hero" class="h-screen max-h-[1100px] bg-gradient-to-t from-p-100 to-white overflow-y-clip">
+		<div class="container relative flex items-center justify-center h-full w-full xl:justify-start">
+			<!-- Image -->
+			<div class="absolute bottom-0 right-0 overflow-hidden z-0 md:-bottom-40 xl:top-1/2 xl:-translate-y-1/2">
+					<img src="./assets/hero_img.png" alt="hero-img" class="h-full">
+			</div>
+			<!-- Nội dung chính -->
+			<div class="flex flex-col justify-center items-center gap-4 z-10 md:gap-9 xl:items-start">
+				<div>
+					<h2 class="mb-2 text-xs font-semibold leading-none tracking-wider uppercase text-center font-inter md:text-sm xl:text-start">hơn<span class="text-sx text-gradient"> một trăm</span> hương vị trà</h2>
+					<h1 class="text-5xl leading-none tracking-wide text-center capitalize font-lobster md:text-6xl xl:text-7xl">Trà Đặc Biệt Chế Tác</h1>
+				</div>
+				<p class="max-w-xl px-4 text-center text-n-700 md:px-0 xl:text-start ">
+					Sứ mệnh của chúng tôi là mang đến cho bạn sự yên bình và kết nối thông qua
+					các hương vị trà được chọn lọc cẩn thận và được tạo ra để nâng cao trải nghiệm
+					hàng ngày và sức khoẻ toàn diện cho bạn.
+				</p>
+				<button>
+					<a href="#products" class="btn">Tìm hiểu sản phẩm <img src="./assets/right-arrow.svg" alt="right arrow"></a>
+				</button>
+			</div>
+		</div>
+    </section>
+
+	<!-- Partner Logos -->
+
+	<section id="partner-logos">
+
+		<!-- heading -->
+		<div class="container">
+			<div class="mt-10">
+				<h2 class="sub_heading">Có mặt tại</h2>
+				<h1 class="main_heading"> Những Nhà Phân Phối <span class="text-gradient">Uy Tín</span></h1>
+			</div>
+		</div>
+
+		<!-- logos -->
+		 <div class="flex mt-9 md:mt-16 [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
+			<div class="flex flex-none logos-wrapper gap-14 pl-14" id="partner-logo-list">
+				<!-- <img src="./assets/partner-logos/costco.png" alt="costco" class="logo-ticker-image"> -->
+			</div>
+		 </div>
+
+	</section>
+
 </body>
 </html>
 
